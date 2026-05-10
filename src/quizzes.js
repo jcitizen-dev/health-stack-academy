@@ -741,4 +741,225 @@ window.HSA.QUIZZES = [
     options:['True','False'], answer:'False',
     explanation:'False — NAC is taken on TRAINING days only (Mon–Fri in the core protocol). On rest days, NAC is skipped to avoid blunting ROS-driven training adaptations. Reactive oxygen species from training act as signalling molecules for adaptation (mitochondrial biogenesis, strength gains). The hepatoprotective benefit is still delivered when it matters most — during peak training stress.',
     xpReward:15 },
+
+  // ── CONCEPT — Biomarker Interpretation (20 questions) ────────────────────
+  { id:'q121', type:'concept', category:'liver', difficulty:1,
+    question:'ALT and AST are both liver enzymes. Why is ALT considered more liver-specific than AST?',
+    options:[
+      'ALT is only found in liver cells; AST is also found in muscle, heart, and red blood cells',
+      'ALT is higher in the blood than AST in healthy people',
+      'AST requires a prescription test; ALT is standard',
+      'ALT measures bile flow; AST measures protein production'
+    ], answer:'ALT is only found in liver cells; AST is also found in muscle, heart, and red blood cells',
+    explanation:'Think of ALT as a liver fingerprint — it sits almost exclusively in liver cells. AST is messier: it leaks from muscle, heart, and even red blood cells. So if only AST is elevated after a hard workout, that\'s probably muscle damage, not liver trouble. When ALT rises too, the liver is much more likely to be the culprit.',
+    xpReward:15 },
+
+  { id:'q122', type:'concept', category:'liver', difficulty:2,
+    question:'GGT is normal but ALT is elevated. What does this pattern most likely tell you?',
+    options:[
+      'The damage pattern is hepatocellular (liver cell injury), not cholestatic (bile duct obstruction)',
+      'The liver is completely healthy — GGT being normal cancels out the ALT elevation',
+      'Alcohol is the most likely cause of the ALT elevation',
+      'The kidneys are compensating for reduced liver function'
+    ], answer:'The damage pattern is hepatocellular (liver cell injury), not cholestatic (bile duct obstruction)',
+    explanation:'Doctors use the ALT/GGT pattern like a diagnostic map. High ALT + normal GGT = liver cells are leaking (hepatocellular injury — things like fatty liver or medication stress). High GGT ± high ALT = bile ducts are backed up (cholestatic) or alcohol is involved. Normal GGT is also strong evidence against alcohol as a cause, since alcohol reliably raises GGT.',
+    xpReward:15 },
+
+  { id:'q123', type:'concept', category:'hormones', difficulty:2,
+    question:'SHBG (Sex Hormone Binding Globulin) is high. What does this do to testosterone availability in the body?',
+    options:[
+      'It binds more testosterone and reduces the free fraction that tissues can actually use',
+      'It converts testosterone into a more potent form available to tissues',
+      'It signals the testes to produce more testosterone',
+      'It has no effect — only total testosterone levels matter clinically'
+    ], answer:'It binds more testosterone and reduces the free fraction that tissues can actually use',
+    explanation:'Think of SHBG as a parking lot where testosterone sits idle. Testosterone parked in SHBG cannot get into your cells. High SHBG means more parking spaces are filled — so even if total testosterone looks great on paper, very little of it is actually free to work. This is why free testosterone is often the more clinically meaningful number.',
+    xpReward:15 },
+
+  { id:'q124', type:'concept', category:'minerals', difficulty:1,
+    question:'What is the difference between serum iron and ferritin?',
+    options:[
+      'Serum iron is iron currently circulating in the blood; ferritin is the long-term storage form',
+      'Serum iron measures dietary intake; ferritin measures absorption efficiency',
+      'Ferritin is the active form used by muscles; serum iron is stored in bone marrow',
+      'They measure the same thing — ferritin is just the more accurate test'
+    ], answer:'Serum iron is iron currently circulating in the blood; ferritin is the long-term storage form',
+    explanation:'Serum iron is like the cash in your wallet right now — it fluctuates hour to hour based on meals and stress. Ferritin is like your savings account — it reflects total iron reserves built up over weeks or months. You can have normal serum iron but very low ferritin (early iron depletion), which is why both tests together tell a much fuller story.',
+    xpReward:15 },
+
+  { id:'q125', type:'concept', category:'glucose', difficulty:1,
+    question:'Why does HbA1c give a better picture of blood sugar control than a single fasting glucose reading?',
+    options:[
+      'HbA1c reflects the average blood sugar level over the past 2–3 months, smoothing out day-to-day swings',
+      'HbA1c measures the maximum glucose spike ever recorded in the blood',
+      'A single glucose reading is always inaccurate due to lab error',
+      'HbA1c counts the number of glucose molecules in a litre of blood more precisely'
+    ], answer:'HbA1c reflects the average blood sugar level over the past 2–3 months, smoothing out day-to-day swings',
+    explanation:'Red blood cells live for about 90 days, and glucose slowly sticks to them (glycation). HbA1c measures how much glucose has stuck — giving a rolling 3-month average. A fasting glucose is just a snapshot that can look fine even in someone who spikes high after every meal. Together they\'re far more informative than either alone.',
+    xpReward:15 },
+
+  { id:'q126', type:'concept', category:'thyroid', difficulty:1,
+    question:'TSH is elevated above the reference range. What does this indicate about thyroid function?',
+    options:[
+      'The thyroid is underactive — TSH is high because the brain is shouting louder, trying to stimulate a sluggish gland',
+      'The thyroid is overactive — TSH is high because the gland is producing too much hormone',
+      'TSH elevation only occurs after thyroid surgery',
+      'High TSH means the liver is clearing thyroid hormones too quickly'
+    ], answer:'The thyroid is underactive — TSH is high because the brain is shouting louder, trying to stimulate a sluggish gland',
+    explanation:'TSH is a messenger from the brain to the thyroid saying "make more hormone." If the thyroid is sluggish (hypothyroid), the brain shouts louder — so TSH goes UP. If the thyroid is overactive (hyperthyroid), the brain quiets down — so TSH goes DOWN. TSH moves in the opposite direction to thyroid function, which trips people up.',
+    xpReward:15 },
+
+  { id:'q127', type:'concept', category:'glucose', difficulty:2,
+    question:'What is HOMA-IR, and what does a score of 1.1 indicate?',
+    options:[
+      'It is a calculated estimate of insulin resistance; 1.1 is in the healthy range, indicating good insulin sensitivity',
+      'It is a direct blood test; 1.1 means borderline pre-diabetes',
+      'It measures the ratio of HDL to glucose; 1.1 is considered optimal for athletes',
+      'It stands for Hemoglobin-A1c Ratio; values below 2.0 are always normal'
+    ], answer:'It is a calculated estimate of insulin resistance; 1.1 is in the healthy range, indicating good insulin sensitivity',
+    explanation:'HOMA-IR (Homeostatic Model Assessment of Insulin Resistance) is calculated from fasting glucose and fasting insulin. Think of it as: how hard does your pancreas have to work to keep blood sugar normal? Scores below 1.0 are excellent, 1.0–1.9 is healthy, and above 2.9 suggests significant insulin resistance. A score of 1.1 means the body is efficiently responding to insulin without having to overproduce it.',
+    xpReward:15 },
+
+  { id:'q128', type:'concept', category:'kidney', difficulty:2,
+    question:'Someone takes creatine supplements and their creatinine is flagged as elevated. Why might this be a false alarm?',
+    options:[
+      'Creatine supplements increase creatinine as a normal byproduct — urea staying normal suggests kidney function is fine',
+      'Creatine supplements damage the kidneys, so elevated creatinine confirms real injury',
+      'Creatinine and creatine are unrelated; the elevation must be from another cause',
+      'Elevated creatinine from supplements only occurs if protein intake is very low'
+    ], answer:'Creatine supplements increase creatinine as a normal byproduct — urea staying normal suggests kidney function is fine',
+    explanation:'Creatinine is a waste product from creatine breakdown in muscle. More creatine in = more creatinine out, even with perfectly healthy kidneys. The key differentiator is urea: kidneys struggling to filter waste will see BOTH creatinine AND urea rise together. If creatinine is up but urea is normal, the kidneys are almost certainly handling things fine — the creatine supplement is the explanation.',
+    xpReward:15 },
+
+  { id:'q129', type:'concept', category:'inflammation', difficulty:2,
+    question:'What does elevated homocysteine do to blood vessels?',
+    options:[
+      'It damages the inner lining of blood vessels, making them more likely to develop plaques and clots',
+      'It causes blood vessels to dilate too much, lowering blood pressure dangerously',
+      'It thickens the blood directly, increasing clotting risk without affecting vessel walls',
+      'It has no effect on vessels — elevated homocysteine only affects the brain'
+    ], answer:'It damages the inner lining of blood vessels, making them more likely to develop plaques and clots',
+    explanation:'Homocysteine is an amino acid produced as a byproduct of protein metabolism. At high levels it acts like sandpaper on the smooth inner lining of arteries. This micro-damage triggers inflammation and encourages cholesterol plaques to form, raising cardiovascular risk independently of LDL. Folate, B6, and B12 help the body clear homocysteine, which is why the "methylation triad" matters.',
+    xpReward:15 },
+
+  { id:'q130', type:'concept', category:'metabolic', difficulty:1,
+    question:'Why is HDL called "good" cholesterol?',
+    options:[
+      'HDL acts as a reverse transport vehicle, picking up excess cholesterol from artery walls and carrying it back to the liver for disposal',
+      'HDL directly breaks down LDL particles in the bloodstream',
+      'HDL blocks cholesterol from being absorbed in the intestines',
+      'HDL is produced by the liver only when cholesterol levels are already safe'
+    ], answer:'HDL acts as a reverse transport vehicle, picking up excess cholesterol from artery walls and carrying it back to the liver for disposal',
+    explanation:'Think of HDL as the cleanup crew. LDL drops cholesterol off in tissues (including artery walls); HDL picks it back up and returns it to the liver where it can be processed or excreted. Higher HDL means a more active cleanup operation — which is why it\'s associated with lower cardiovascular risk. It\'s not that HDL cholesterol is harmless; it\'s that HDL particles are doing a protective job.',
+    xpReward:15 },
+
+  { id:'q131', type:'concept', category:'metabolic', difficulty:2,
+    question:'What does Apo-B measure that LDL-C (LDL cholesterol) misses?',
+    options:[
+      'Apo-B counts the total number of cholesterol-carrying particles; LDL-C only measures the cholesterol content inside them',
+      'Apo-B measures HDL particles; LDL-C measures only LDL',
+      'Apo-B is a more direct measure of dietary fat intake than LDL-C',
+      'Apo-B and LDL-C measure the same thing — Apo-B is just a more expensive version of the same test'
+    ], answer:'Apo-B counts the total number of cholesterol-carrying particles; LDL-C only measures the cholesterol content inside them',
+    explanation:'Imagine LDL-C as the total weight of cargo on delivery trucks, and Apo-B as the count of trucks. A small number of heavily loaded trucks (high LDL-C, low particle count) may be less dangerous than many lightly loaded trucks (lower LDL-C, high particle count) — because each truck is a potential artery-wall collision. Apo-B captures the traffic volume, not just the cargo weight, which is why it\'s a stronger predictor of cardiovascular risk.',
+    xpReward:15 },
+
+  { id:'q132', type:'concept', category:'liver', difficulty:2,
+    question:'Albumin is elevated above the reference range. What is the most likely explanation?',
+    options:[
+      'Dehydration — when blood volume shrinks, the same amount of albumin becomes more concentrated',
+      'The liver is overproducing albumin due to excess dietary protein',
+      'High albumin indicates liver disease because a stressed liver overworks to produce it',
+      'Albumin elevation is always clinically insignificant and can be ignored'
+    ], answer:'Dehydration — when blood volume shrinks, the same amount of albumin becomes more concentrated',
+    explanation:'Albumin is made by the liver and is normally stable. The liver doesn\'t suddenly overproduce it. When albumin reads HIGH, it\'s usually because there\'s less plasma water to dilute it — the same amount of albumin squeezed into less fluid looks more concentrated. Common causes: dehydration, sauna use, or intense exercise before the blood draw. Low albumin (not high) is the worrying sign of liver disease.',
+    xpReward:15 },
+
+  { id:'q133', type:'concept', category:'minerals', difficulty:2,
+    question:'UIBC (Unsaturated Iron Binding Capacity) is elevated. What does this tell you about your iron status?',
+    options:[
+      'There is a lot of unfilled space on iron-transport proteins, suggesting the body is hungry for more iron',
+      'There is too much iron saturating the transport proteins, suggesting iron overload',
+      'UIBC elevation always points to liver disease affecting iron regulation',
+      'High UIBC means iron is being lost through the kidneys rather than stored'
+    ], answer:'There is a lot of unfilled space on iron-transport proteins, suggesting the body is hungry for more iron',
+    explanation:'Transferrin is the protein that ferries iron around the blood. UIBC measures the empty seats on transferrin — capacity that isn\'t currently occupied by iron. High UIBC = lots of empty seats = low iron load relative to transport capacity. The body is essentially saying "send more iron, we have plenty of room." This is consistent with iron deficiency or iron depletion states.',
+    xpReward:15 },
+
+  { id:'q134', type:'concept', category:'vitamins', difficulty:2,
+    question:'Why should Vitamin K2 be taken alongside Vitamin D3, especially at higher doses?',
+    options:[
+      'Vitamin D3 drives calcium absorption; K2 directs calcium into bones and teeth instead of artery walls',
+      'K2 increases the absorption of D3 from the gut, making the dose more effective',
+      'D3 depletes K2 from the body, so supplementing both prevents a deficiency',
+      'K2 prevents the toxicity of D3 by blocking excess D3 from reaching the kidneys'
+    ], answer:'Vitamin D3 drives calcium absorption; K2 directs calcium into bones and teeth instead of artery walls',
+    explanation:'D3 opens the gate for calcium to enter your body from food and supplements — great for bones, but the calcium needs directing. K2 activates proteins (like osteocalcin) that act like traffic controllers, routing calcium into bones and teeth and away from soft tissues like arteries. Without K2, higher D3 doses can lead to calcium accumulating in the wrong places. K2 is the chaperone that ensures the calcium ends up where you want it.',
+    xpReward:15 },
+
+  { id:'q135', type:'concept', category:'kidney', difficulty:2,
+    question:'eGFR (estimated Glomerular Filtration Rate) can read artificially low in some people. Which scenario most commonly causes this?',
+    options:[
+      'High muscle mass or creatine supplementation raises creatinine, making eGFR appear lower than actual kidney function',
+      'Eating a high-fat meal before the blood draw interferes with the eGFR calculation',
+      'Low hydration causes eGFR to drop permanently even after rehydration',
+      'Athletes always have impaired kidneys, so low eGFR in athletes is a true finding'
+    ], answer:'High muscle mass or creatine supplementation raises creatinine, making eGFR appear lower than actual kidney function',
+    explanation:'eGFR is calculated from creatinine — the formula assumes an average muscle mass. Muscular people or those taking creatine produce more creatinine from larger or more active muscles. The formula interprets this extra creatinine as the kidneys struggling to clear it, so it spits out a lower eGFR. But the kidneys are fine — there\'s just more waste being generated. Other kidney markers (urea, cystatin-C) help confirm whether it\'s a false alarm.',
+    xpReward:15 },
+
+  { id:'q136', type:'concept', category:'inflammation', difficulty:1,
+    question:'CRP (C-Reactive Protein) at 1.0 mg/L is described as "borderline." What does this mean for cardiovascular risk?',
+    options:[
+      'Values below 1.0 are low risk, 1.0–3.0 are intermediate risk, and above 3.0 are high risk — so 1.0 sits right at the low/intermediate boundary',
+      'Any CRP above 0.5 mg/L indicates an active infection requiring treatment',
+      'CRP of 1.0 only matters in the context of fever — without fever it is always clinically insignificant',
+      'CRP is not used for cardiovascular risk — it only measures bacterial infection severity'
+    ], answer:'Values below 1.0 are low risk, 1.0–3.0 are intermediate risk, and above 3.0 are high risk — so 1.0 sits right at the low/intermediate boundary',
+    explanation:'High-sensitivity CRP (hs-CRP) is used as a cardiovascular risk marker, separate from the CRP used to detect acute infections (which reads in tens or hundreds). At 1.0 mg/L you are at the exact boundary between the low-risk and intermediate-risk zones. It\'s not alarming, but it\'s a flag to track — chronic low-grade inflammation at this level over years does meaningfully increase heart disease risk.',
+    xpReward:15 },
+
+  { id:'q137', type:'concept', category:'metabolic', difficulty:2,
+    question:'What is Lp(a), and can it be meaningfully lowered through diet or supplements?',
+    options:[
+      'Lp(a) is a genetically determined lipoprotein particle; diet and most supplements have very little effect on it',
+      'Lp(a) is elevated by saturated fat intake and responds well to dietary changes',
+      'Lp(a) is the same as LDL-C but measured more precisely — statins reliably reduce it',
+      'Lp(a) can be normalized within months using niacin supplementation'
+    ], answer:'Lp(a) is a genetically determined lipoprotein particle; diet and most supplements have very little effect on it',
+    explanation:'Lp(a) is a lipoprotein that behaves like a stickier, more dangerous version of LDL. Critically, about 80–90% of your Lp(a) level is set by genetics — not by what you eat. Statins, diet changes, and most supplements barely move it. This makes elevated Lp(a) one of the harder cardiovascular risk factors to treat conventionally. Newer RNA-targeting drugs are in trials specifically for Lp(a) reduction. Knowing your level matters even if you can\'t change it — it informs overall risk assessment.',
+    xpReward:15 },
+
+  { id:'q138', type:'concept', category:'thyroid', difficulty:2,
+    question:'Anti-TPO antibodies are very low or undetectable. Why is this good news for long-term thyroid health?',
+    options:[
+      'Low Anti-TPO means the immune system is not attacking the thyroid, making autoimmune thyroid disease (Hashimoto\'s) unlikely',
+      'Low Anti-TPO indicates the thyroid is producing excess antibodies, which protects it from damage',
+      'Anti-TPO being low means TSH will remain low, reducing the risk of hypothyroidism',
+      'Anti-TPO is only relevant after a thyroid cancer diagnosis — low values have no meaning otherwise'
+    ], answer:'Low Anti-TPO means the immune system is not attacking the thyroid, making autoimmune thyroid disease (Hashimoto\'s) unlikely',
+    explanation:'Anti-TPO antibodies are the immune system\'s "attack signature" against thyroid tissue. Hashimoto\'s thyroiditis — the most common cause of hypothyroidism — is an autoimmune condition where elevated Anti-TPO antibodies signal that the immune system is gradually destroying the thyroid gland. Very low or undetectable Anti-TPO is genuinely reassuring: it means this immune attack is not underway, significantly reducing the likelihood of developing thyroid disease.',
+    xpReward:15 },
+
+  { id:'q139', type:'concept', category:'vitamins', difficulty:2,
+    question:'Which three supplements form the "methylation triad" used to target elevated homocysteine?',
+    options:[
+      'Folate (B9), Vitamin B6, and Vitamin B12',
+      'Magnesium, Zinc, and Vitamin C',
+      'Vitamin D3, Vitamin K2, and Omega-3',
+      'NAC, TMG, and Alpha-Lipoic Acid'
+    ], answer:'Folate (B9), Vitamin B6, and Vitamin B12',
+    explanation:'Homocysteine is recycled or cleared through a process called methylation. Three B-vitamins are essential workers in this process: B12 and folate (B9) work together to convert homocysteine back into methionine (a useful amino acid), while B6 helps convert it down a different clearance pathway. Deficiency in any of the three stalls the system and allows homocysteine to build up. Supplementing all three together is the standard evidence-based approach to lowering elevated homocysteine.',
+    xpReward:15 },
+
+  { id:'q140', type:'concept', category:'hormones', difficulty:1,
+    question:'What is the difference between total testosterone and free testosterone, and which one more accurately reflects what your body is actually experiencing?',
+    options:[
+      'Total testosterone measures all testosterone including bound (inactive) forms; free testosterone is the unbound fraction that cells can actually use — free T is more clinically meaningful',
+      'Free testosterone is produced by the adrenal glands; total testosterone is produced by the testes — both are equally important',
+      'Total testosterone is the better marker because it captures all forms regardless of binding',
+      'Free testosterone is only relevant in women — in men, total testosterone is the gold standard'
+    ], answer:'Total testosterone measures all testosterone including bound (inactive) forms; free testosterone is the unbound fraction that cells can actually use — free T is more clinically meaningful',
+    explanation:'Most testosterone in the blood is hitched to carrier proteins — primarily SHBG (tightly bound and inactive) and albumin (loosely bound and partly available). Only about 1–3% is free and immediately usable by cells. Total testosterone tells you the whole pool; free testosterone tells you how much is actually reaching the locker room. A man with high total T but very high SHBG may experience symptoms of low testosterone because so little of it is free. Free T is the number that reflects lived experience.',
+    xpReward:15 },
 ];
