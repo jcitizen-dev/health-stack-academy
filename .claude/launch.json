@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "health-stack-academy",
+      "runtimeExecutable": "ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "--", "-p", "3747", "/Users/jordan/Desktop/My Health Game/health-stack-academy"],
+      "port": 3747,
+      "autoPort": false
+    }
+  ]
+}
