@@ -287,8 +287,8 @@ function RangeBar({ marker }) {
 function DosageBadge({ supplement }) {
   return (
     <div style={{ background:'var(--surface2)', borderRadius:'var(--radius)', padding:'8px 12px', display:'inline-block' }}>
-      <div style={{ fontFamily:'DM Mono, monospace', fontSize:12, color:'var(--accent)', fontWeight:500 }}>{supplement.dosage}</div>
-      <div style={{ fontFamily:'DM Mono, monospace', fontSize:10, color:'var(--muted)', marginTop:2 }}>{supplement.dosageNote}</div>
+      <div style={{ fontFamily:'DM Mono, monospace', fontSize:14, color:'var(--accent)', fontWeight:500 }}>{supplement.dosage}</div>
+      <div style={{ fontFamily:'DM Mono, monospace', fontSize:13, color:'var(--muted)', marginTop:2 }}>{supplement.dosageNote}</div>
     </div>
   );
 }
@@ -440,16 +440,16 @@ function FlashCard({ supplement, onSwipe }) {
           <div style={{ fontSize:52, marginBottom:12 }}>{supplement.emoji}</div>
           <div style={{ fontSize:22, fontWeight:500, marginBottom:4 }}>{supplement.name}</div>
           <PillTag label={supplement.category} color={window.HSA.CATEGORIES[supplement.category] && window.HSA.CATEGORIES[supplement.category].color} />
-          <div style={{ position:'absolute', bottom:12, fontFamily:'DM Mono, monospace', fontSize:10, color:'var(--muted)' }}>tap to flip</div>
-          {dragX > 80 && <div style={{ position:'absolute', top:12, right:12, fontFamily:'DM Mono, monospace', fontSize:11, color:'var(--accent)' }}>✓ KNOW IT</div>}
-          {dragX < -80 && <div style={{ position:'absolute', top:12, left:12, fontFamily:'DM Mono, monospace', fontSize:11, color:'var(--danger)' }}>↺ REVIEW</div>}
+          <div style={{ position:'absolute', bottom:12, fontFamily:'DM Mono, monospace', fontSize:12, color:'var(--muted)' }}>tap to flip</div>
+          {dragX > 80 && <div style={{ position:'absolute', top:12, right:12, fontFamily:'DM Mono, monospace', fontSize:13, color:'var(--accent)' }}>✓ KNOW IT</div>}
+          {dragX < -80 && <div style={{ position:'absolute', top:12, left:12, fontFamily:'DM Mono, monospace', fontSize:13, color:'var(--danger)' }}>↺ REVIEW</div>}
         </div>
         <div className="flip-back" style={{ position:'absolute', inset:0, borderRadius:'var(--radius)', background:'var(--surface)', border:'1px solid var(--border)', padding:20, transform:'rotateY(180deg)', overflowY:'auto' }}>
           <DosageBadge supplement={supplement} />
-          <p style={{ marginTop:12, fontSize:13, lineHeight:1.6, color:'var(--text)' }}>{supplement.whatItIs}</p>
+          <p style={{ marginTop:12, fontSize:14, lineHeight:1.6, color:'var(--text)' }}>{supplement.whatItIs}</p>
           <div style={{ marginTop:10, padding:'8px 12px', background:'var(--surface2)', borderRadius:10 }}>
-            <div style={{ fontFamily:'DM Mono, monospace', fontSize:10, color:'var(--muted)', marginBottom:4 }}>MECHANISM</div>
-            <p style={{ fontSize:12, lineHeight:1.5, color:'var(--muted)' }}>{supplement.mechanism}</p>
+            <div style={{ fontFamily:'DM Mono, monospace', fontSize:12, color:'var(--muted)', marginBottom:4 }}>MECHANISM</div>
+            <p style={{ fontSize:14, lineHeight:1.5, color:'var(--muted)' }}>{supplement.mechanism}</p>
           </div>
         </div>
       </div>
@@ -491,41 +491,41 @@ function BiomarkerFlashCard({ marker, onSwipe }) {
 
         {/* Front */}
         <div className="flip-front" style={{ position:'absolute', inset:0, borderRadius:'var(--radius)', border:`1px solid ${statusColor}44`, background: swipeColor !== 'transparent' ? `linear-gradient(135deg, var(--surface), ${swipeColor})` : 'var(--surface)', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:24, gap:12 }}>
-          <span style={{ fontFamily:'DM Mono, monospace', fontSize:10, color:'var(--muted)', letterSpacing:'0.1em', textTransform:'uppercase', border:'1px solid var(--border)', borderRadius:20, padding:'3px 10px' }}>{panelLabel}</span>
+          <span style={{ fontFamily:'DM Mono, monospace', fontSize:12, color:'var(--muted)', letterSpacing:'0.1em', textTransform:'uppercase', border:'1px solid var(--border)', borderRadius:20, padding:'3px 10px' }}>{panelLabel}</span>
           <div style={{ fontSize:32, fontWeight:300, letterSpacing:'-0.02em', textAlign:'center' }}>{marker.name}</div>
-          <div style={{ fontFamily:'DM Mono, monospace', fontSize:11, color: statusColor, border:`1px solid ${statusColor}`, borderRadius:20, padding:'3px 12px', letterSpacing:'0.08em' }}>{statusLabel}</div>
-          <div style={{ fontSize:13, color:'var(--muted)', textAlign:'center', marginTop:8, lineHeight:1.5 }}>What does this blood test measure?</div>
-          <div style={{ position:'absolute', bottom:14, fontFamily:'DM Mono, monospace', fontSize:10, color:'var(--muted)' }}>tap to reveal · swipe to sort</div>
-          {dragX > 80 && <div style={{ position:'absolute', top:12, right:12, fontFamily:'DM Mono, monospace', fontSize:11, color:'var(--accent)' }}>✓ KNOW IT</div>}
-          {dragX < -80 && <div style={{ position:'absolute', top:12, left:12, fontFamily:'DM Mono, monospace', fontSize:11, color:'var(--danger)' }}>↺ REVIEW</div>}
+          <div style={{ fontFamily:'DM Mono, monospace', fontSize:13, color: statusColor, border:`1px solid ${statusColor}`, borderRadius:20, padding:'3px 12px', letterSpacing:'0.08em' }}>{statusLabel}</div>
+          <div style={{ fontSize:14, color:'var(--muted)', textAlign:'center', marginTop:8, lineHeight:1.5 }}>What does this blood test measure?</div>
+          <div style={{ position:'absolute', bottom:14, fontFamily:'DM Mono, monospace', fontSize:12, color:'var(--muted)' }}>tap to reveal · swipe to sort</div>
+          {dragX > 80 && <div style={{ position:'absolute', top:12, right:12, fontFamily:'DM Mono, monospace', fontSize:13, color:'var(--accent)' }}>✓ KNOW IT</div>}
+          {dragX < -80 && <div style={{ position:'absolute', top:12, left:12, fontFamily:'DM Mono, monospace', fontSize:13, color:'var(--danger)' }}>↺ REVIEW</div>}
         </div>
 
         {/* Back */}
         <div className="flip-back" style={{ position:'absolute', inset:0, borderRadius:'var(--radius)', background:'var(--surface)', border:`1px solid ${statusColor}44`, padding:18, transform:'rotateY(180deg)', overflowY:'auto' }}>
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:10 }}>
-            <span style={{ fontFamily:'DM Mono, monospace', fontSize:13, fontWeight:500 }}>{marker.name}</span>
-            <span style={{ fontFamily:'DM Mono, monospace', fontSize:10, color: statusColor, border:`1px solid ${statusColor}`, borderRadius:20, padding:'2px 10px', letterSpacing:'0.08em' }}>{statusLabel}</span>
+            <span style={{ fontFamily:'DM Mono, monospace', fontSize:14, fontWeight:500 }}>{marker.name}</span>
+            <span style={{ fontFamily:'DM Mono, monospace', fontSize:12, color: statusColor, border:`1px solid ${statusColor}`, borderRadius:20, padding:'2px 10px', letterSpacing:'0.08em' }}>{statusLabel}</span>
           </div>
-          <p style={{ fontSize:12, lineHeight:1.6, color:'var(--muted)', marginBottom:12 }}>{marker.whatItMeasures}</p>
+          <p style={{ fontSize:14, lineHeight:1.6, color:'var(--muted)', marginBottom:12 }}>{marker.whatItMeasures}</p>
           <div style={{ background:'var(--surface2)', borderRadius:10, padding:'10px 12px', marginBottom:10 }}>
             <div style={{ display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:6 }}>
-              <span style={{ fontFamily:'DM Mono, monospace', fontSize:10, color:'var(--muted)', letterSpacing:'0.08em' }}>YOUR RESULT</span>
-              <span style={{ fontFamily:'DM Mono, monospace', fontSize:16, color: statusColor, fontWeight:500 }}>{marker.myValue} <span style={{ fontSize:10, color:'var(--muted)' }}>{marker.unit}</span></span>
+              <span style={{ fontFamily:'DM Mono, monospace', fontSize:12, color:'var(--muted)', letterSpacing:'0.08em' }}>YOUR RESULT</span>
+              <span style={{ fontFamily:'DM Mono, monospace', fontSize:16, color: statusColor, fontWeight:500 }}>{marker.myValue} <span style={{ fontSize:12, color:'var(--muted)' }}>{marker.unit}</span></span>
             </div>
             <div style={{ position:'relative', height:8, borderRadius:4, background:'var(--bg)', overflow:'visible' }}>
               <div style={{ position:'absolute', left:`${optLowPct}%`, width:`${optHighPct-optLowPct}%`, height:'100%', background:'rgba(200,245,66,0.25)', borderRadius:4 }} />
               <div style={{ position:'absolute', left:`${pct}%`, top:'50%', transform:'translate(-50%,-50%)', width:12, height:12, borderRadius:'50%', background: statusColor, boxShadow:`0 0 8px ${statusColor}` }} />
             </div>
             <div style={{ display:'flex', justifyContent:'space-between', marginTop:4 }}>
-              <span style={{ fontFamily:'DM Mono, monospace', fontSize:9, color:'var(--muted)' }}>{r.low}</span>
-              <span style={{ fontFamily:'DM Mono, monospace', fontSize:9, color:'var(--accent)', opacity:0.6 }}>optimal {r.optimal_low}–{r.optimal_high}</span>
-              <span style={{ fontFamily:'DM Mono, monospace', fontSize:9, color:'var(--muted)' }}>{r.high}</span>
+              <span style={{ fontFamily:'DM Mono, monospace', fontSize:11, color:'var(--muted)' }}>{r.low}</span>
+              <span style={{ fontFamily:'DM Mono, monospace', fontSize:11, color:'var(--accent)', opacity:0.6 }}>optimal {r.optimal_low}–{r.optimal_high}</span>
+              <span style={{ fontFamily:'DM Mono, monospace', fontSize:11, color:'var(--muted)' }}>{r.high}</span>
             </div>
           </div>
-          <p style={{ fontSize:12, lineHeight:1.6, color:'var(--text)', marginBottom:10 }}>{marker.myContextNote}</p>
+          <p style={{ fontSize:14, lineHeight:1.6, color:'var(--text)', marginBottom:10 }}>{marker.myContextNote}</p>
           <div style={{ borderTop:'1px solid var(--border)', paddingTop:8 }}>
-            <div style={{ fontFamily:'DM Mono, monospace', fontSize:9, color:'var(--muted)', letterSpacing:'0.08em', marginBottom:4 }}>REMEMBER</div>
-            <p style={{ fontSize:11, lineHeight:1.5, color:'var(--rare)', fontFamily:'DM Mono, monospace' }}>{marker.mnemonic}</p>
+            <div style={{ fontFamily:'DM Mono, monospace', fontSize:11, color:'var(--muted)', letterSpacing:'0.08em', marginBottom:4 }}>REMEMBER</div>
+            <p style={{ fontSize:13, lineHeight:1.5, color:'var(--rare)', fontFamily:'DM Mono, monospace' }}>{marker.mnemonic}</p>
           </div>
         </div>
       </div>
