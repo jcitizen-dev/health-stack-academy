@@ -946,7 +946,7 @@ function QuizScreen({ progressHook }) {
     if (params.get('type')) { return allQ.filter(function(q){return q.type===params.get('type');}).slice(0,10).map(function(q){return q.id;}); }
     if (params.get('category')) { return allQ.filter(function(q){return q.category===params.get('category');}).slice(0,15).map(function(q){return q.id;}); }
     return allQ.slice().sort(function(){return Math.random()-0.5;}).slice(0,10).map(function(q){return q.id;});
-  }, []);
+  }, [location.search]);
 
   const [idx, setIdx] = useState(0);
   const [answered, setAnswered] = useState(null);
