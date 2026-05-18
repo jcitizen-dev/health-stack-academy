@@ -14,7 +14,8 @@ jobs:
 
       - name: Check JS syntax (src/ files)
         run: |
-          for f in src/*.js; do
+          # app.js and components.js use JSX which requires Babel to parse
+          for f in src/biomarkers.js src/hooks.js src/progression.js src/quizzes.js src/supplements.js; do
             echo "Checking $f..."
             node --check "$f"
           done
