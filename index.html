@@ -361,6 +361,10 @@ function QuizCard({ quiz, onAnswer, answered, combo, multiplier, hearts }) {
   const [shake, setShake] = useState$c(false);
   const [showXP, setShowXP] = useState$c(false);
   useEffect$c(() => { setSelected(null); setShake(false); setShowXP(false); }, [quiz && quiz.id]);
+  const shuffledOptions = useMemo(function() {
+    if (!quiz || !quiz.options) return [];
+    return quiz.options.slice().sort(function() { return Math.random() - 0.5; });
+  }, [quiz && quiz.id]);
   const handleSelect = (opt) => {
     if (answered !== null || selected) return;
     setSelected(opt);
@@ -387,7 +391,7 @@ function QuizCard({ quiz, onAnswer, answered, combo, multiplier, hearts }) {
         {multiplier > 1 && <div style={{ marginTop:8, fontFamily:'DM Mono, monospace', fontSize:10, color:'var(--xp-gold)' }}>+{xpEarned} XP ({multiplier}×)</div>}
       </div>
       <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
-        {(quiz.options || []).map((opt, i) => {
+        {shuffledOptions.map((opt, i) => {
           const isSelected = selected === opt;
           const isCorrect = opt === quiz.answer;
           let bg = 'var(--surface)', border = 'var(--border)', color = 'var(--text)';
