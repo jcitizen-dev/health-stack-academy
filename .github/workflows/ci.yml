@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  check:
+    name: Syntax & Structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check JS syntax (src/ files)
+        run: |
+          for f in src/*.js; do
+            echo "Checking $f..."
+            node --check "$f"
+          done
+
+      - name: Check Python syntax
+        run: python3 -m py_compile serve.py
+
+      - name: Check index.html exists and is non-empty
+        run: |
+          test -s index.html && echo "index.html OK" || (echo "index.html missing or empty" && exit 1)
