@@ -85,7 +85,7 @@ window.HSA.BOSSES = [
     dialogueLines:[
       '"Total T is 25.9. But the Tyrant knows your free T is only 8.63. Who is the captor?"',
       '"SHBG 53.42 — name my two suppressors or your free testosterone stays chained."',
-      '"DHT at 483.7 on dutasteride — explain why this is good, not alarming."',
+      '"DHT at 7 ng/dL (LOW) by LC/MS/MS on dutasteride — why is sub-reference range actually ideal for the hair protocol?"',
       '"The Tyrant\'s chains break. Free testosterone rises. You understand the full hormonal picture."',
     ],
     quizIds:['q5','q6','q15','q18','q26','q61','q87','q93','q99','q105'],

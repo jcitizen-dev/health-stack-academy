@@ -88,9 +88,10 @@ window.HSA.QUIZZES = [
     xpReward:15, markerId:'albumin' },
 
   { id:'q15', type:'my_value', category:'hormones', difficulty:2,
-    question:'What was my DHT level, and is it notable given my medication?',
-    options:['183.2 pg/mL — very low on dutasteride','483.7 pg/mL — in normal range despite dutasteride','724.1 pg/mL — elevated','912.5 pg/mL — near maximum'], answer:'483.7 pg/mL — in normal range despite dutasteride',
-    explanation:'DHT at 483.7 pg/mL despite dutasteride (which blocks ~90% of 5-AR activity) suggests excellent endogenous testosterone production. DHT remains in the normal range (175–913) — the "surprisingly good" result the doctor flagged.',
+    question:'What was my DHT result on the May 2026 Quest LC/MS/MS (gold standard) assay?',
+    options:['12 ng/dL — at the lower boundary of reference','7 ng/dL — below reference range, LOW by LC/MS/MS','28 ng/dL — mid-range for a treated patient','45 ng/dL — optimal suppression on dutasteride'],
+    answer:'7 ng/dL — below reference range, LOW by LC/MS/MS',
+    explanation:'7 ng/dL (LOW) — below the Quest reference range of 12–65 ng/dL on the LC/MS/MS assay, the gold standard for DHT. This is ideal for the hair protocol: dutasteride is suppressing DHT below the lower reference limit, confirming very effective 5-AR blockade. A previous immunoassay reading of 483.7 pg/mL was a method artifact (cross-reactivity with other steroids). LC/MS/MS is the accurate measurement.',
     xpReward:20, markerId:'dht' },
 
   { id:'q16', type:'my_value', category:'metabolic', difficulty:1,
@@ -559,9 +560,10 @@ window.HSA.QUIZZES = [
     xpReward:30, markerId:'anti_tpo' },
 
   { id:'q93', type:'multiple_choice', category:'hormones', difficulty:3,
-    question:'DHT at 483.7 pg/mL on dutasteride — what does this tell us about endogenous testosterone production?',
-    options:['Dutasteride is not working — DHT should be undetectable','DHT at 483.7 despite 90–95% 5-AR blockade implies very high baseline testosterone → DHT conversion, suggesting robust endogenous T production','Dutasteride only reduces DHT by 50% in reality','483.7 pg/mL is below the normal range for males'], answer:'DHT at 483.7 despite 90–95% 5-AR blockade implies very high baseline testosterone → DHT conversion, suggesting robust endogenous T production',
-    explanation:'If dutasteride reduces DHT by ~90%, and the residual DHT is 483.7 pg/mL (within reference 175–913), then pre-treatment DHT was approximately 4,000–5,000+ pg/mL. This implies exceptionally high endogenous testosterone → DHT conversion driven by strong T production. The hair benefit is real (DHT suppressed for follicles) while systemic androgenic health is maintained.',
+    question:'My immunoassay DHT read 483.7 pg/mL but the LC/MS/MS result is 7 ng/dL (LOW). How do you explain this discrepancy?',
+    options:['The blood samples were drawn at different times of day — DHT fluctuates that much','Dutasteride is only blocking the immunoassay-detectable form of DHT, not the real form','Immunoassay methods significantly overestimate DHT via cross-reactivity with other steroids — LC/MS/MS physically separates and accurately quantifies only DHT, giving the true lower value. 7 ng/dL (LOW) is the real picture.','The 483.7 pg/mL was in different units — it converts exactly to 7 ng/dL'],
+    answer:'Immunoassay methods significantly overestimate DHT via cross-reactivity with other steroids — LC/MS/MS physically separates and accurately quantifies only DHT, giving the true lower value. 7 ng/dL (LOW) is the real picture.',
+    explanation:'DHT immunoassay tests cross-react with testosterone, androstenedione, and other steroids, producing falsely inflated readings — hence 483.7 pg/mL. LC/MS/MS (liquid chromatography–tandem mass spectrometry) physically separates all steroid molecules before measuring — only DHT is counted. Result: 7 ng/dL (below reference 12–65 ng/dL). Sub-reference DHT is expected and desirable on dutasteride — it confirms maximum 5-AR blockade for optimal hair protection.',
     xpReward:30, markerId:'dht' },
 
   { id:'q94', type:'multiple_choice', category:'methylation', difficulty:2,

@@ -1,107 +1,119 @@
-// ── Biomarker seed data (52 markers — April 2026 Serbia panel) ────────────────
+// ── Biomarker seed data (updated May 2026 — Quest panel + Serbia April 2026) ──
 window.HSA = window.HSA || {};
 
 window.HSA.BIOMARKERS = [
   // ── METABOLIC / GLUCOSE ────────────────────────────────────────────────────
   {
-    id: 'glucose', name: 'Glucose', panel: 'glucose', myValue: 5.1, unit: 'mmol/L',
+    id: 'glucose', name: 'Glucose', panel: 'glucose', myValue: 4.94, unit: 'mmol/L',
     referenceRange: { low: 3.9, optimal_low: 4.0, optimal_high: 5.5, high: 6.1 },
     status: 'optimal',
     whatItMeasures: 'Fasting blood sugar — how much glucose is circulating in your blood after an overnight fast.',
     whyItMatters: 'Chronic high glucose drives glycation, oxidative stress, and insulin resistance — the root of metabolic disease. Low glucose can indicate over-production of insulin.',
-    myContextNote: '5.1 mmol/L is excellent — squarely in the optimal zone. HbA1c at 5.2% confirms this is a stable, long-term picture, not a lucky single reading. The 1.1 HOMA-IR score confirms strong insulin sensitivity.',
+    myContextNote: '4.94 mmol/L (89 mg/dL) is excellent fasting glucose. HbA1c 5.3% confirms consistent metabolic control. HOMA-IR 0.9 (insulin 4.1 × glucose 4.94 / 22.5) confirms excellent insulin sensitivity.',
     relatedSupplements: ['magnesium', 'vitd', 'creatine'],
     mnemonic: 'FIVE-point-ONE: fine, fine, fine. 5.1 is pristine glucose.',
     xpValue: 15
   },
   {
-    id: 'hba1c', name: 'HbA1c', panel: 'glucose', myValue: 5.2, unit: '%',
+    id: 'hba1c', name: 'HbA1c', panel: 'glucose', myValue: 5.3, unit: '%',
     referenceRange: { low: 4.0, optimal_low: 4.5, optimal_high: 5.6, high: 6.5 },
     status: 'optimal',
     whatItMeasures: 'Glycated haemoglobin — reflects average blood sugar over the past 2–3 months.',
     whyItMatters: 'Unlike fasting glucose (a snapshot), HbA1c is a movie. Pre-diabetes begins at 5.7%; diabetes at 6.5%.',
-    myContextNote: '5.2% is excellent — in the "longevity optimal" zone. Combined with HOMA-IR of 1.1, this confirms strong metabolic health despite a high-supplement, high-training lifestyle.',
+    myContextNote: '5.3% is excellent — well below the pre-diabetes threshold (5.7%). Up slightly from 4.89% (July 2025) and 5.2% (April 2026 Serbia) but still solidly in the safe zone. Worth monitoring trend at next panel.',
     relatedSupplements: ['magnesium', 'vitd', 'creatine'],
-    mnemonic: 'HbA1c 5.2 — FIVE-point-TWO, through and through, metabolically true.',
+    mnemonic: 'HbA1c 5.3 — FIVE-point-THREE, still well clear, metabolically free.',
     xpValue: 15
   },
   {
-    id: 'insulin', name: 'Insulin', panel: 'glucose', myValue: 4.8, unit: 'µIU/mL',
+    id: 'insulin', name: 'Insulin', panel: 'glucose', myValue: 4.1, unit: 'µIU/mL',
     referenceRange: { low: 2.6, optimal_low: 3.0, optimal_high: 8.0, high: 24.9 },
     status: 'optimal',
     whatItMeasures: 'Fasting insulin — the pancreatic hormone that shuttles glucose into cells.',
     whyItMatters: 'High fasting insulin signals insulin resistance years before glucose rises. Low insulin with normal glucose = excellent sensitivity.',
-    myContextNote: '4.8 µIU/mL is in the low-optimal zone — ideal. HOMA-IR = (glucose × insulin) / 22.5 = (5.1 × 4.8) / 22.5 = 1.1. A HOMA-IR under 2 is the goal. This shows the pancreas isn\'t overworking to manage blood sugar.',
+    myContextNote: '4.1 µIU/mL — low-optimal, even slightly better than 4.8 in April 2026. HOMA-IR = (4.94 × 4.1) / 22.5 = 0.90. Under 1.0 is elite insulin sensitivity. The pancreas is barely working — glucose clears efficiently on minimal insulin.',
     relatedSupplements: ['magnesium', 'creatine', 'vitd'],
     mnemonic: 'Insulin 4.8 — FOUR-point-EIGHT, insulin working great.',
     xpValue: 15
   },
   {
-    id: 'homa_ir', name: 'HOMA-IR', panel: 'glucose', myValue: 1.1, unit: '—',
+    id: 'homa_ir', name: 'HOMA-IR', panel: 'glucose', myValue: 0.9, unit: '—',
     referenceRange: { low: 0.5, optimal_low: 0.5, optimal_high: 2.0, high: 2.9 },
     status: 'optimal',
     whatItMeasures: 'Homeostatic Model Assessment of Insulin Resistance — calculated from fasting glucose × fasting insulin.',
     whyItMatters: 'The most clinically useful single measure of insulin sensitivity. Values >2 suggest resistance; >3 indicates significant resistance.',
-    myContextNote: '1.1 is excellent. Formula: (5.1 × 4.8) / 22.5 = 1.088. This confirms the body is highly insulin sensitive — glucose clears efficiently with minimal insulin required.',
+    myContextNote: '0.9 is elite. Formula: (4.94 × 4.1) / 22.5 = 0.90. Under 1.0 is the gold standard for insulin sensitivity. Even better than April 2026 (1.1). The body is handling glucose almost effortlessly.',
     relatedSupplements: ['magnesium', 'vitd', 'creatine'],
-    mnemonic: 'HOMA-IR 1.1 — ONE-point-ONE, insulin resistance = none.',
+    mnemonic: 'HOMA-IR 0.9 — ZERO-point-NINE, under one is elite — insulin sensitivity divine.',
+    xpValue: 20
+  },
+
+  {
+    id: 'c_peptide', name: 'C-Peptide', panel: 'glucose', myValue: 1.09, unit: 'ng/mL',
+    referenceRange: { low: 0.80, optimal_low: 0.80, optimal_high: 3.0, high: 3.85 },
+    status: 'optimal',
+    whatItMeasures: 'A byproduct of insulin production — released in equal amounts to insulin by the pancreatic beta cells. Measures actual insulin secretion (unlike serum insulin which can be cleared by the liver).',
+    whyItMatters: 'C-Peptide distinguishes Type 1 from Type 2 diabetes. Low C-Peptide = beta cells failing (Type 1 pattern). Normal/high C-Peptide = pancreas is producing insulin (Type 2 or healthy). A great longevity marker for pancreatic reserve.',
+    myContextNote: '1.09 ng/mL is in the lower-optimal range — healthy pancreatic insulin secretion confirmed. The pancreas is producing insulin normally but not over-producing (which would signal compensation for insulin resistance). Combined with HOMA-IR 0.9, this confirms excellent metabolic health.',
+    relatedSupplements: ['magnesium', 'vitd'],
+    mnemonic: 'C-Peptide 1.09 — ONE-oh-NINE, pancreas producing insulin just fine.',
     xpValue: 20
   },
 
   // ── CHOLESTEROL / CARDIOVASCULAR ──────────────────────────────────────────
   {
-    id: 'total_chol', name: 'Total Cholesterol', panel: 'metabolic', myValue: 4.79, unit: 'mmol/L',
+    id: 'total_chol', name: 'Total Cholesterol', panel: 'metabolic', myValue: 3.98, unit: 'mmol/L',
     referenceRange: { low: 2.5, optimal_low: 3.0, optimal_high: 5.0, high: 5.2 },
     status: 'optimal',
     whatItMeasures: 'Sum of all cholesterol-carrying particles in blood — HDL + LDL + VLDL.',
     whyItMatters: 'Total cholesterol alone is a poor cardiovascular predictor — context (HDL vs LDL vs particle size) matters far more.',
-    myContextNote: '4.79 mmol/L is well within range. The full lipid picture is reassuring: low TG (0.78), good HDL (1.61), optimal LDL (2.8). The cardiovascular story here is strong.',
+    myContextNote: '3.98 mmol/L (154 mg/dL) — best it has ever been. Down from 4.79 in April 2026 and 4.31 in July 2025. The full lipid picture is excellent: TG 0.68, HDL 1.34, LDL 2.25, Apo-B 80. The EVOO + fish oil protocol is delivering measurable cardiovascular benefit.',
     relatedSupplements: ['fishoil', 'evoo', 'garlic'],
-    mnemonic: 'Total chol 4.79 — FOUR-seventy-NINE, cardiovascular fine.',
+    mnemonic: 'Total chol 3.98 — THREE-ninety-EIGHT, best ever — cardiovascular fate looking great.',
     xpValue: 10
   },
   {
-    id: 'hdl', name: 'HDL', panel: 'metabolic', myValue: 1.61, unit: 'mmol/L',
+    id: 'hdl', name: 'HDL', panel: 'metabolic', myValue: 1.34, unit: 'mmol/L',
     referenceRange: { low: 1.0, optimal_low: 1.4, optimal_high: 2.5, high: 3.0 },
-    status: 'optimal',
+    status: 'borderline',
     whatItMeasures: 'High-density lipoprotein — the "reverse cholesterol transport" particle that removes cholesterol from arteries.',
     whyItMatters: 'HDL is cardioprotective. Low HDL (<1.0) is a major cardiovascular risk factor. High HDL reduces arterial plaque accumulation.',
-    myContextNote: '1.61 mmol/L — just above the lower optimal boundary (>1.6 ref). The fish oil, EVOO, and exercise all contribute to maintaining this. Worth monitoring — if it dips below 1.6, lifestyle adjustments are warranted.',
+    myContextNote: '1.34 mmol/L (52 mg/dL) is just below the optimal threshold of 1.4. Down slightly from 1.61 in April 2026. Still well above the clinical concern level (1.0). To push HDL higher: more vigorous aerobic exercise, continued fish oil and EVOO, and avoiding refined carbs are the main levers.',
     relatedSupplements: ['fishoil', 'evoo', 'vitd'],
-    mnemonic: 'HDL 1.61 — ONE-sixty-ONE, just over the optimum line.',
+    mnemonic: 'HDL 1.34 — ONE-thirty-FOUR, just below optimal. Fish oil and cardio — that\'s what HDL\'s for.',
     xpValue: 10
   },
   {
-    id: 'ldl', name: 'LDL', panel: 'metabolic', myValue: 2.8, unit: 'mmol/L',
+    id: 'ldl', name: 'LDL', panel: 'metabolic', myValue: 2.25, unit: 'mmol/L',
     referenceRange: { low: 0.5, optimal_low: 1.5, optimal_high: 3.0, high: 3.4 },
     status: 'optimal',
     whatItMeasures: 'Low-density lipoprotein — primary cholesterol carrier; elevated levels associate with atherosclerosis.',
     whyItMatters: 'LDL-C is a useful proxy but Apo-B is a better predictor of actual particle risk. LDL particle size (small dense vs large fluffy) matters — large fluffy LDL is less atherogenic.',
-    myContextNote: '2.8 mmol/L is optimal. Triglycerides at 0.78 (very low) suggests favourable LDL particle size (high TG drives small dense LDL). Apo-B at 89 mg/dL warrants monitoring despite a good LDL-C number.',
+    myContextNote: '2.25 mmol/L (87 mg/dL) is sub-100 mg/dL — excellent. Down from 2.80 (April 2026). Paired with Apo-B of 80 and TG of 0.68, the full atherogenic particle picture is now very clean. LDL particle size is likely large/fluffy given the very low TG.',
     relatedSupplements: ['fishoil', 'garlic', 'evoo'],
-    mnemonic: 'LDL 2.8 — TWO-point-EIGHT, LDL in a great state.',
+    mnemonic: 'LDL 2.25 — TWO-twenty-FIVE, sub-optimal threshold, cardiovascular thriving.',
     xpValue: 10
   },
   {
-    id: 'triglycerides', name: 'Triglycerides', panel: 'metabolic', myValue: 0.78, unit: 'mmol/L',
+    id: 'triglycerides', name: 'Triglycerides', panel: 'metabolic', myValue: 0.68, unit: 'mmol/L',
     referenceRange: { low: 0.3, optimal_low: 0.5, optimal_high: 1.1, high: 1.7 },
     status: 'optimal',
     whatItMeasures: 'Blood fats — stored energy; elevated TG signals excess carbs/alcohol, insulin resistance, or poor fat metabolism.',
     whyItMatters: 'High TG (>1.7) is an independent cardiovascular risk factor and drives small dense LDL formation. Low TG suggests efficient fat metabolism and good insulin sensitivity.',
-    myContextNote: '0.78 mmol/L is excellent — nearly half the upper limit. This strongly suggests efficient fat oxidation, good insulin sensitivity (confirmed by HOMA-IR 1.1), and the fish oil/EVOO protocol working well.',
+    myContextNote: '0.68 mmol/L (60 mg/dL) — even better than April 2026 (0.78). Exceptional fat metabolism and insulin sensitivity (HOMA-IR 0.9). This is among the best TG values achievable — well under half the upper limit. The fish oil + EVOO + low-refined-carb approach continues to deliver.',
     relatedSupplements: ['fishoil', 'evoo', 'vitd'],
-    mnemonic: 'TG 0.78 — ZERO-seventy-EIGHT, triglycerides rate great.',
+    mnemonic: 'TG 0.68 — ZERO-sixty-EIGHT, triglycerides at an exceptional rate.',
     xpValue: 10
   },
   {
-    id: 'apo_b', name: 'Apo B', panel: 'metabolic', myValue: 89, unit: 'mg/dL',
+    id: 'apo_b', name: 'Apo B', panel: 'metabolic', myValue: 80, unit: 'mg/dL',
     referenceRange: { low: 49, optimal_low: 49, optimal_high: 80, high: 130 },
-    status: 'borderline',
+    status: 'optimal',
     whatItMeasures: 'Apolipoprotein B — one Apo-B molecule per atherogenic particle (LDL, VLDL, IDL). The best single predictor of cardiovascular particle risk.',
     whyItMatters: 'Each Apo-B is one potentially atherogenic particle. Someone with many small LDL particles can have "normal" LDL-C but high Apo-B. Apo-B > LDL-C in predictive power.',
-    myContextNote: '89 mg/dL is within the lab reference (49–173) but above the "optimal" threshold. The cardiometabolic ideal is Apo-B <80 mg/dL. Worth monitoring — fish oil, dietary optimisation, and EVOO are the primary tools.',
+    myContextNote: 'Apo-B dropped from 89 (borderline) to 80 — right at the optimal threshold. The fish oil, EVOO, and overall lipid picture improvement drove this. LDL also dropped from 108.3 to 87 mg/dL in the same period. The cardiovascular particle burden is now fully optimal.',
     relatedSupplements: ['fishoil', 'evoo', 'garlic'],
-    mnemonic: 'Apo-B 89 — EIGHTY-NINE, borderline for the heart\'s design.',
+    mnemonic: 'Apo-B 80 — EIGHTY, right at optimal. From borderline 89 to the threshold — fish oil and EVOO know the rest.',
     xpValue: 20
   },
   {
@@ -129,45 +141,45 @@ window.HSA.BIOMARKERS = [
 
   // ── LIVER ─────────────────────────────────────────────────────────────────
   {
-    id: 'ast', name: 'AST', panel: 'liver', myValue: 39, unit: 'U/L',
+    id: 'ast', name: 'AST', panel: 'liver', myValue: 34, unit: 'U/L',
     referenceRange: { low: 5, optimal_low: 10, optimal_high: 34, high: 50 },
-    status: 'elevated',
+    status: 'optimal',
     whatItMeasures: 'Aspartate aminotransferase — liver enzyme released when hepatocytes are stressed or damaged.',
     whyItMatters: 'AST is less liver-specific than ALT (also in muscle). Elevated AST with elevated ALT = hepatocellular pattern. Elevated AST alone can indicate muscle damage.',
-    myContextNote: 'AST at 39 U/L is ABOVE the reference (<34). Pattern alongside ALT 67: mild hepatocellular stress. The good news: GGT is normal (26 U/L), bilirubin is normal, CRP is low. This rules out alcohol damage, major fatty liver, and bile obstruction. Most likely: intense training + supplement load + possible Tongkat Ali effect. NAC and TUDCA in the stack are specifically targeting this.',
+    myContextNote: 'AST recovered from 39 (borderline high, April 2026) to 34 — right at the upper limit of optimal. Together with ALT dropping from 67 to 26, this confirms full liver recovery. TUDCA + NAC + taurine protocol delivered measurable results within one month.',
     relatedSupplements: ['nac', 'tudca', 'taurine'],
-    mnemonic: 'AST 39 — THIRTY-NINE, one step over the line. Training + supplements likely culprit.',
+    mnemonic: 'AST 34 — THIRTY-FOUR, liver stress resolved, not sore anymore.',
     xpValue: 25
   },
   {
-    id: 'alt', name: 'ALT', panel: 'liver', myValue: 67, unit: 'U/L',
+    id: 'alt', name: 'ALT', panel: 'liver', myValue: 26, unit: 'U/L',
     referenceRange: { low: 5, optimal_low: 10, optimal_high: 40, high: 56 },
-    status: 'elevated',
+    status: 'optimal',
     whatItMeasures: 'Alanine aminotransferase — the most liver-specific enzyme; primary marker of hepatocellular damage.',
     whyItMatters: 'ALT is the most sensitive indicator of liver cell stress. Elevated ALT with normal GGT and bilirubin = mild hepatocellular stress, not cholestatic damage.',
-    myContextNote: 'ALT at 67 U/L is the clearest abnormality in the panel (ref <45). Pattern: hepatocellular (ALT > AST rise). NOT cholestatic (GGT 26 is normal). Likely contributors: intense training, sauna use, supplement load (especially Tongkat Ali + polyphenols). NAC + TUDCA + taurine are the liver protection protocol. Trend monitoring at next bloodwork is key.',
+    myContextNote: 'ALT dropped from 67 HIGH (April 2026 Serbia) to 26 — a 61% improvement and now firmly optimal. The TUDCA + NAC + taurine liver protection protocol worked. This also confirms the prior elevation was transient (likely training stress + supplement load), not structural liver disease.',
     relatedSupplements: ['nac', 'tudca', 'taurine', 'evoo'],
-    mnemonic: 'ALT 67 — SIXTY-SEVEN, liver working but heaven-sent supplements helping.',
+    mnemonic: 'ALT 26 — TWENTY-SIX, liver fully fixed. From 67 to 26 — TUDCA did its tricks.',
     xpValue: 25
   },
   {
-    id: 'ggt', name: 'GGT', panel: 'liver', myValue: 26, unit: 'U/L',
+    id: 'ggt', name: 'GGT', panel: 'liver', myValue: 17, unit: 'U/L',
     referenceRange: { low: 5, optimal_low: 10, optimal_high: 40, high: 55 },
     status: 'optimal',
     whatItMeasures: 'Gamma-glutamyl transferase — enzyme marking cholestatic liver disease, alcohol use, and oxidative stress.',
     whyItMatters: 'GGT is the key differentiator: elevated GGT = cholestatic pattern or alcohol. Normal GGT with elevated AST/ALT = hepatocellular pattern (muscle, training, supplements — not bile obstruction).',
-    myContextNote: '26 U/L is optimal. This is the critical finding that contextualises the elevated AST/ALT. Normal GGT rules out alcohol damage, bile duct obstruction, and fatty liver as primary causes. The liver enzyme elevation pattern is benign in context.',
+    myContextNote: '17 U/L — down from 26 (April 2026), even further into the optimal zone. GGT is the key liver enzyme for ruling out cholestatic damage and alcohol. Combined with AST 34 and ALT 26, this confirms full liver recovery and no cholestatic component.',
     relatedSupplements: ['nac', 'tudca'],
-    mnemonic: 'GGT 26 — TWENTY-SIX, GGT all fixed. The good news in the liver mix.',
+    mnemonic: 'GGT 17 — SEVENTEEN, liver clean. Down from 26, the best it\'s been.',
     xpValue: 20
   },
   {
-    id: 'alp', name: 'ALP', panel: 'liver', myValue: 78, unit: 'U/L',
+    id: 'alp', name: 'ALP', panel: 'liver', myValue: 45, unit: 'U/L',
     referenceRange: { low: 40, optimal_low: 44, optimal_high: 120, high: 147 },
     status: 'optimal',
     whatItMeasures: 'Alkaline phosphatase — enzyme in liver, bone, and intestine; elevated in cholestatic liver disease and bone disorders.',
     whyItMatters: 'Elevated ALP with elevated GGT = cholestatic liver disease. Elevated ALP alone = bone disease (Paget\'s, bone metastases). Normal ALP + normal GGT confirms the liver pattern is not cholestatic.',
-    myContextNote: '78 U/L — optimal. Confirms non-cholestatic pattern alongside normal GGT. Bone turnover is also normal — relevant since Vitamin D and K2 support bone health.',
+    myContextNote: '45 U/L — down from 78 in April 2026, well within range. Confirms non-cholestatic pattern. Bone metabolism normal — Vitamin D and K2 continue to support healthy bone turnover without over-stimulating ALP.',
     relatedSupplements: ['vitd', 'k2'],
     mnemonic: 'ALP 78 — SEVENTY-EIGHT, alkaline phosphatase just fine at this rate.',
     xpValue: 10
@@ -184,38 +196,38 @@ window.HSA.BIOMARKERS = [
     xpValue: 10
   },
   {
-    id: 'albumin', name: 'Albumin', panel: 'liver', myValue: 52, unit: 'g/L',
+    id: 'albumin', name: 'Albumin', panel: 'liver', myValue: 47, unit: 'g/L',
     referenceRange: { low: 35, optimal_low: 38, optimal_high: 50, high: 53 },
-    status: 'elevated',
+    status: 'optimal',
     whatItMeasures: 'Main protein in blood — made by the liver; reflects liver synthetic function and hydration status.',
     whyItMatters: 'LOW albumin = liver failure, malnutrition, inflammation. HIGH albumin = dehydration, hemoconcentration (blood is more concentrated than normal).',
-    myContextNote: 'Albumin at 52 g/L is mildly ABOVE the reference (35–50). This is very likely dehydration/hemoconcentration from sauna use, intense training, and potentially drawing blood in a slightly dehydrated state. High albumin is not dangerous — it just reflects a concentrated blood sample. Not a liver problem (liver problems cause LOW albumin).',
+    myContextNote: '47 g/L (4.7 g/dL) is solidly optimal — down from 52 (slightly elevated due to dehydration) in April 2026. Well-hydrated draw, good protein intake, and healthy liver synthetic function confirmed. The dehydration artifact from Serbia is gone.',
     relatedSupplements: ['protein'],
-    mnemonic: 'Albumin 52 — FIFTY-TWO, probably dehydrated when they drew. Rehydrate before next test.',
+    mnemonic: 'Albumin 47 — FORTY-SEVEN, properly hydrated and liver-perfect. No hemo-concentration leaven.',
     xpValue: 20
   },
 
   // ── KIDNEY ────────────────────────────────────────────────────────────────
   {
-    id: 'creatinine', name: 'Creatinine', panel: 'kidney', myValue: 119.9, unit: 'µmol/L',
+    id: 'creatinine', name: 'Creatinine', panel: 'kidney', myValue: 101.7, unit: 'µmol/L',
     referenceRange: { low: 53, optimal_low: 70, optimal_high: 110, high: 114.9 },
-    status: 'elevated',
+    status: 'optimal',
     whatItMeasures: 'Breakdown product of creatine phosphate in muscle — filtered by kidneys. Used to estimate kidney function.',
     whyItMatters: 'High creatinine can mean poor kidney filtration — OR it can be a harmless artifact of high muscle mass and creatine supplementation. Context is everything.',
-    myContextNote: 'Creatinine at 119.9 µmol/L is above reference (53–114.9). CRITICAL CONTEXT: creatine supplementation (5 g/day) predictably raises serum creatinine. Creatine → creatinine is a normal metabolic by-product. This is a well-documented lab artifact in athletes on creatine. Also: high muscle mass + intense training + possible pre-draw dehydration (sauna) all contribute. This does NOT indicate true kidney damage.',
+    myContextNote: '101.7 µmol/L (1.15 mg/dL) is now firmly in the optimal range — down from 119.9 (elevated) in the Serbia April 2026 panel. The Cystatin C-based eGFR of 111 (unaffected by creatine) definitively confirms excellent kidney function. This panel closes the book on the kidney concern from Serbia.',
     relatedSupplements: ['creatine'],
-    mnemonic: 'Creatinine 119.9 — CREATINE is the reason. Artifact, not alarm.',
+    mnemonic: 'Creatinine 101.7 — ONE-oh-ONE, optimal now. Cystatin C eGFR 111 confirms kidneys won.',
     xpValue: 25
   },
   {
-    id: 'egfr', name: 'eGFR', panel: 'kidney', myValue: 62.2, unit: '—',
+    id: 'egfr', name: 'eGFR (Creatinine)', panel: 'kidney', myValue: 79, unit: 'mL/min/1.73m²',
     referenceRange: { low: 60, optimal_low: 75, optimal_high: 120, high: 130 },
-    status: 'borderline',
+    status: 'optimal',
     whatItMeasures: 'Estimated glomerular filtration rate — calculated from creatinine; estimates how much blood the kidneys filter per minute.',
-    whyItMatters: 'eGFR <60 = CKD stage 3. But the formula uses creatinine — so creatine supplementation artificially lowers calculated eGFR without any true filtration impairment.',
-    myContextNote: 'eGFR 62.2 is technically still "normal" (>60) but near the cutoff. The creatinine artifact from creatine supplementation is the most likely explanation. In muscular, creatine-supplementing, heavily training men this consistently over-estimates kidney concern. Stay hydrated, avoid training/sauna immediately before lab draws. Monitor longitudinally.',
+    whyItMatters: 'eGFR <60 = CKD stage 3. But the formula uses creatinine — so creatine supplementation artificially lowers calculated eGFR without any true filtration impairment. Cystatin C-based eGFR is the gold standard for creatine users.',
+    myContextNote: 'eGFR 79 is solidly normal — up from a concerning 62.2 in the Serbia April 2026 panel. The Cystatin C-based eGFR is 111, confirming the 62.2 was entirely a creatine artifact. This definitively closes the kidney concern. Two independent methods now confirm excellent renal function.',
     relatedSupplements: ['creatine'],
-    mnemonic: 'eGFR 62.2 — SIXTY-TWO, but creatine makes it look worse than true.',
+    mnemonic: 'eGFR 79 + Cystatin C eGFR 111 — SEVENTY-NINE and ONE-eleven, creatine artifact gone, kidneys in heaven.',
     xpValue: 25
   },
   {
@@ -239,6 +251,18 @@ window.HSA.BIOMARKERS = [
     relatedSupplements: ['vitc'],
     mnemonic: 'Uric acid 326.6 — THREE-twenty-SIX, uric acid in the mix but well fixed.',
     xpValue: 10
+  },
+
+  {
+    id: 'cystatin_c', name: 'Cystatin C', panel: 'kidney', myValue: 0.79, unit: 'mg/L',
+    referenceRange: { low: 0.52, optimal_low: 0.52, optimal_high: 1.0, high: 1.27 },
+    status: 'optimal',
+    whatItMeasures: 'A protein produced at a constant rate by all nucleated cells — filtered by kidneys. Unlike creatinine, it is NOT affected by muscle mass or creatine supplementation.',
+    whyItMatters: 'Cystatin C is the gold standard kidney marker for athletes and creatine users. When creatinine-based eGFR suggests concern, Cystatin C tells the truth. eGFR from Cystatin C of >90 = excellent kidney function.',
+    myContextNote: '0.79 mg/L is optimal. Cystatin C-based eGFR = 111 mL/min/1.73m² — confirming excellent kidney function unaffected by creatine use. This definitively resolves the concern raised by the Serbia April 2026 creatinine-based eGFR of 62.2. Kidneys are fine. Creatine is safe to continue.',
+    relatedSupplements: ['creatine'],
+    mnemonic: 'Cystatin C 0.79 — ZERO-seventy-NINE, the true kidney test. eGFR 111 — kidneys at their best.',
+    xpValue: 25
   },
 
   // ── MINERALS ──────────────────────────────────────────────────────────────
@@ -265,106 +289,106 @@ window.HSA.BIOMARKERS = [
     xpValue: 15
   },
   {
-    id: 'potassium', name: 'Potassium', panel: 'minerals', myValue: 5.2, unit: 'mmol/L',
+    id: 'potassium', name: 'Potassium', panel: 'minerals', myValue: 4.7, unit: 'mmol/L',
     referenceRange: { low: 3.5, optimal_low: 3.8, optimal_high: 5.0, high: 5.1 },
-    status: 'elevated',
+    status: 'optimal',
     whatItMeasures: 'The main intracellular electrolyte — critical for heart rhythm, muscle contraction, and nerve signalling.',
     whyItMatters: 'True hyperkalemia (>6.0 mmol/L) is a cardiac emergency. At 5.2, the key question is: real or artifact? Haemolysis during blood draw artificially elevates potassium.',
-    myContextNote: 'Potassium at 5.2 mmol/L is barely above the reference (3.5–5.1). The doctor noted this is likely benign — common causes: blood draw hemolysis, dehydration, post-training recovery, high-potassium plant foods. At 5.2 with no cardiac symptoms, this is "watch and repeat" territory, not a clinical problem. Confirm with a repeat draw, well-hydrated, without intense training beforehand.',
+    myContextNote: '4.7 mmol/L is perfectly mid-range and normal — down from 5.2 (borderline high) in April 2026 which was likely a hemolysis artifact. This confirms the Serbia potassium reading was draw-related, not a real elevation. Properly hydrated, well-timed draw.',
     relatedSupplements: ['magnesium'],
-    mnemonic: 'Potassium 5.2 — FIVE-point-TWO, barely over — likely hemolysis or dehydration clue.',
+    mnemonic: 'Potassium 4.7 — FOUR-point-SEVEN, mid-range and fine. Serbia 5.2 was the dehydration sign.',
     xpValue: 20
   },
   {
-    id: 'calcium', name: 'Calcium', panel: 'minerals', myValue: 2.55, unit: 'mmol/L',
+    id: 'calcium', name: 'Calcium', panel: 'minerals', myValue: 2.47, unit: 'mmol/L',
     referenceRange: { low: 2.1, optimal_low: 2.2, optimal_high: 2.5, high: 2.55 },
-    status: 'borderline',
+    status: 'optimal',
     whatItMeasures: 'Serum calcium — regulated by PTH, Vitamin D, and calcitonin; essential for bone, muscle, and nerve function.',
     whyItMatters: 'Hypercalcaemia (>2.6) causes kidney stones, calcification, and cardiac arrhythmias. Right at the upper limit is a warning signal, especially with high-dose Vitamin D supplementation.',
-    myContextNote: 'Calcium at 2.55 mmol/L is EXACTLY at the upper reference limit (2.1–2.55). This is a key signal: do NOT increase Vitamin D3 dosage (currently 5000 IU). Vitamin D drives calcium absorption — too much D can push calcium higher. K2 in the stack routes calcium to bone rather than arteries. Monitor at next bloodwork.',
+    myContextNote: '2.47 mmol/L (9.9 mg/dL) is now comfortably within range — down from the concerning 2.55 (right at upper limit) in April 2026. This confirms the 5000 IU/day Vitamin D dose is not pushing calcium too high. K2 is doing its job routing calcium to bone. Continue current protocol.',
     relatedSupplements: ['vitd', 'k2'],
-    mnemonic: 'Calcium 2.55 — TWO-fifty-FIVE, right at the limit — don\'t push D3 higher.',
+    mnemonic: 'Calcium 2.47 — TWO-forty-SEVEN, no longer at the ceiling. K2 sending calcium to bone — healing.',
     xpValue: 25
   },
 
   // ── IRON STATUS ───────────────────────────────────────────────────────────
   {
-    id: 'iron', name: 'Iron', panel: 'minerals', myValue: 12.3, unit: 'µmol/L',
+    id: 'iron', name: 'Iron', panel: 'minerals', myValue: 24.3, unit: 'µmol/L',
     referenceRange: { low: 11.6, optimal_low: 14, optimal_high: 28, high: 31.3 },
-    status: 'borderline',
+    status: 'optimal',
     whatItMeasures: 'Serum iron — circulating iron bound to transferrin; a snapshot of iron transport (not stores).',
     whyItMatters: 'Low serum iron can indicate iron deficiency (especially with low ferritin) or iron sequestration in inflammation. Context: ferritin and TIBC together tell the full story.',
-    myContextNote: '12.3 µmol/L is just above the lower limit (11.6) but below optimal. This is expected on a vegan diet — non-heme iron is less bioavailable. Crucially: ferritin at 129.1 ng/mL is solid, meaning STORES are adequate despite lower circulating iron. Vitamin C at lunch helps maximise non-heme iron absorption.',
+    myContextNote: '24.3 µmol/L (136 mcg/dL) is solidly optimal — a big improvement from 12.3 (borderline) in April 2026. Iron saturation of 40% and ferritin of 71 ng/mL complete a healthy iron picture. The persistent borderline Hemoglobin/Hematocrit is NOT an iron deficiency issue — iron is fine on all three measures.',
     relatedSupplements: ['vitc'],
-    mnemonic: 'Iron 12.3 — TWELVE-point-THREE, low circulating but ferritin tells the story.',
+    mnemonic: 'Iron 24.3 — TWENTY-FOUR, optimal now. From borderline 12.3 — iron absorption score.',
     xpValue: 15
   },
   {
-    id: 'ferritin', name: 'Ferritin', panel: 'minerals', myValue: 129.1, unit: 'ng/mL',
+    id: 'ferritin', name: 'Ferritin', panel: 'minerals', myValue: 71, unit: 'ng/mL',
     referenceRange: { low: 30, optimal_low: 50, optimal_high: 300, high: 400 },
     status: 'optimal',
     whatItMeasures: 'The iron storage protein — the most reliable indicator of total body iron stores.',
     whyItMatters: 'Ferritin is the gold standard for iron status. Low ferritin = depleted stores = true iron deficiency. High ferritin = either iron overload OR inflammation (ferritin is also an acute phase reactant).',
-    myContextNote: '129.1 ng/mL is solid — comfortably in the optimal range. Despite low serum iron (12.3), good ferritin indicates iron stores are adequate. This pattern (lower serum iron, ok ferritin) is typical on a plant-based diet and doesn\'t require iron supplementation.',
+    myContextNote: '71 ng/mL is within optimal range — down from 129.1 in April 2026. The decrease likely reflects lower inflammation (CRP dropped from 1.0 to <0.2 — ferritin also rises with inflammation as an acute phase reactant). Stores are adequate. Iron saturation (40%) and serum iron (136 mcg/dL) are both solidly normal.',
     relatedSupplements: ['vitc'],
-    mnemonic: 'Ferritin 129.1 — ONE-twenty-NINE, iron stores doing fine.',
+    mnemonic: 'Ferritin 71 — SEVENTY-ONE, adequate stores confirmed. Down from 129 — inflammation gone.',
     xpValue: 15
   },
   {
-    id: 'transferrin_sat', name: 'Transferrin Saturation', panel: 'minerals', myValue: 20.6, unit: '%',
+    id: 'transferrin_sat', name: 'Transferrin Saturation', panel: 'minerals', myValue: 40, unit: '%',
     referenceRange: { low: 16, optimal_low: 20, optimal_high: 40, high: 45 },
     status: 'optimal',
     whatItMeasures: 'The percentage of transferrin (iron transport protein) that is carrying iron — reflects iron delivery efficiency.',
-    whyItMatters: 'Low TSAT (<16%) = iron deficiency. High TSAT (>45%) = iron overload (haemochromatosis risk). 20.6% is at the lower end of optimal.',
-    myContextNote: '20.6% is at the lower edge of optimal — consistent with the plant-based diet pattern. Transferrin is carrying iron efficiently, just not at maximum capacity. The fact that ferritin is solid reassures that stores are adequate despite this pattern.',
+    whyItMatters: 'Low TSAT (<16%) = iron deficiency. High TSAT (>45%) = iron overload (haemochromatosis risk). 40% is the upper edge of optimal.',
+    myContextNote: '40% is the upper boundary of optimal — a significant improvement from 20.6% in April 2026. This confirms iron transport is now at full capacity. Vitamin C at meals is helping maximise non-heme iron absorption. No iron overload concern at 40% (threshold is >45%).',
     relatedSupplements: ['vitc'],
-    mnemonic: 'TSAT 20.6% — TWENTY, iron transport holding steady.',
+    mnemonic: 'TSAT 40% — FORTY percent, iron transport at its best. From 20.6 — Vitamin C doing the rest.',
     xpValue: 15
   },
   {
-    id: 'uibc', name: 'UIBC', panel: 'minerals', myValue: 47.4, unit: 'µmol/L',
+    id: 'uibc', name: 'UIBC', panel: 'minerals', myValue: 36.7, unit: 'µmol/L',
     referenceRange: { low: 12.4, optimal_low: 15, optimal_high: 43, high: 43 },
-    status: 'elevated',
+    status: 'optimal',
     whatItMeasures: 'Unsaturated iron binding capacity — the amount of transferrin NOT carrying iron; reflects iron demand or iron deficit.',
     whyItMatters: 'High UIBC means transferrin has lots of empty binding sites — the body has capacity to carry MORE iron than is available. This suggests relative iron insufficiency or high iron demand.',
-    myContextNote: 'UIBC at 47.4 µmol/L is ABOVE the reference (12.4–43). The doctor interpreted this as reflecting lower available iron and higher iron demand — consistent with a vegan diet pattern. However: ferritin is good (129.1) and TSAT is acceptable (20.6%), so this is "watch" rather than "problem". Vitamin C with meals optimises non-heme iron absorption.',
+    myContextNote: '36.7 µmol/L (calc: TIBC 341 − Iron 136 = 205 mcg/dL ÷ 5.585) is now within reference — down from 47.4 (elevated) in April 2026. Transferrin is now well-saturated (40%), confirming the iron picture has fully normalised. No longer a vegan iron concern.',
     relatedSupplements: ['vitc'],
-    mnemonic: 'UIBC 47.4 — FORTY-SEVEN, transferrin hungry for iron from the vegan heaven.',
+    mnemonic: 'UIBC 36.7 — THIRTY-SIX, transferrin satiated. Iron absorption fixed.',
     xpValue: 20
   },
 
   // ── HORMONES ─────────────────────────────────────────────────────────────
   {
-    id: 'testosterone', name: 'Testosterone (Total)', panel: 'hormones', myValue: 25.9, unit: 'nmol/L',
+    id: 'testosterone', name: 'Testosterone (Total)', panel: 'hormones', myValue: 20.9, unit: 'nmol/L',
     referenceRange: { low: 8.33, optimal_low: 15, optimal_high: 30, high: 30.19 },
     status: 'optimal',
     whatItMeasures: 'Total testosterone — the sum of bound (SHBG-bound, albumin-bound) and free testosterone in circulation.',
     whyItMatters: 'Testosterone drives muscle protein synthesis, libido, mood, cognitive function, and bone density. Total T is the starting point — but free T and SHBG together tell the full story.',
-    myContextNote: '25.9 nmol/L is strong — top third of the male reference range. However, SHBG at 53.42 (high-normal) binds a significant fraction, reducing the free T available to tissues. Free T at 8.63 pg/mL confirms mid-range bioavailability. DHT at 483.7 pg/mL remains in range despite dutasteride.',
+    myContextNote: '20.9 nmol/L (603 ng/dL) — solidly mid-to-upper range. Down slightly from 25.9 in April 2026 but the key story is SHBG: it dropped from 53.42 to 30, meaning FREE testosterone is now much more bioavailable. Free T 89.7 pg/mL with SHBG 30 represents a better hormonal profile than total T 25.9 with SHBG 53.',
     relatedSupplements: ['tongkat', 'boron', 'zinc', 'ashwagandha'],
-    mnemonic: 'Total T 25.9 — TWENTY-FIVE-point-NINE, testosterone strong and fine.',
+    mnemonic: 'Total T 20.9 — TWENTY-point-NINE, but SHBG 30 means more T is free — actually better design.',
     xpValue: 20
   },
   {
-    id: 'free_testosterone', name: 'Free Testosterone', panel: 'hormones', myValue: 8.63, unit: 'pg/mL',
-    referenceRange: { low: 2.15, optimal_low: 6, optimal_high: 14, high: 16.5 },
+    id: 'free_testosterone', name: 'Free Testosterone', panel: 'hormones', myValue: 89.7, unit: 'pg/mL',
+    referenceRange: { low: 46.0, optimal_low: 80, optimal_high: 180, high: 224.0 },
     status: 'optimal',
     whatItMeasures: 'The unbound, biologically active fraction of testosterone available to enter cells and exert effects.',
     whyItMatters: 'Free T is what tissues actually "see." Someone with high total T but high SHBG may have functionally lower hormonal drive. Free T is the clinically meaningful number.',
-    myContextNote: '8.63 pg/mL is mid-range (ref 2.15–16.5) — decent but not optimal given total T of 25.9. The math: high SHBG (53.42) is binding approximately 96–97% of total T, leaving only ~3–4% free. Tongkat Ali + Boron are specifically targeting SHBG reduction to improve free T bioavailability.',
+    myContextNote: '89.7 pg/mL is mid-range on the Quest immunoassay (ref 46–224). Note: the April 2026 Serbia panel used a different direct assay method with a different scale — the two values cannot be directly compared. What matters: with SHBG now at 30 (vs 53.42), bioavailable T is 192.4 ng/dL — well within the healthy range. Tongkat + Boron worked.',
     relatedSupplements: ['tongkat', 'boron', 'zinc'],
-    mnemonic: 'Free T 8.63 — EIGHT-sixty-THREE, SHBG holding it captive — Tongkat sets it free.',
+    mnemonic: 'Free T 89.7 — EIGHTY-nine, SHBG at 30 lets it shine. Tongkat and Boron made it fine.',
     xpValue: 25
   },
   {
-    id: 'shbg', name: 'SHBG', panel: 'hormones', myValue: 53.42, unit: 'nmol/L',
+    id: 'shbg', name: 'SHBG', panel: 'hormones', myValue: 30, unit: 'nmol/L',
     referenceRange: { low: 18.3, optimal_low: 20, optimal_high: 45, high: 54.1 },
-    status: 'borderline',
+    status: 'optimal',
     whatItMeasures: 'Sex hormone binding globulin — the primary transport protein for testosterone (and estradiol); determines how much T is biologically available.',
     whyItMatters: 'High SHBG binds testosterone, reducing free T. SHBG is elevated by: high-fibre vegan diets, low insulin (which is good for metabolic health but raises SHBG), liver production changes, and genetics.',
-    myContextNote: 'SHBG at 53.42 nmol/L is at the very top of reference (18.3–54.1). Vegan diets are specifically associated with higher SHBG — high fibre reduces enterohepatic recirculation of estrogens, but the same mechanism elevates SHBG. Despite total T of 25.9, SHBG is the limiting factor on free T. Tongkat Ali + Boron are the targeted interventions.',
+    myContextNote: 'SHBG dropped from 53.42 (borderline high, April 2026) to 30 — a 44% reduction back to the October 2025 baseline. This is a dramatic improvement. Tongkat Ali + Boron in the stack are the most likely drivers. Lower SHBG means more free testosterone is bioavailable, which is the whole goal of those two supplements.',
     relatedSupplements: ['tongkat', 'boron'],
-    mnemonic: 'SHBG 53.42 — FIFTY-THREE, very high, binding testosterone passionately.',
+    mnemonic: 'SHBG 30 — THIRTY, mid-range now. Tongkat and Boron brought it down — hormone bioavailability found.',
     xpValue: 25
   },
   {
@@ -373,20 +397,20 @@ window.HSA.BIOMARKERS = [
     status: 'optimal',
     whatItMeasures: 'Primary estrogen in men — arises from testosterone aromatisation; important for bone, libido, and mood.',
     whyItMatters: 'Men need estrogen — too low causes poor bone density, low libido, and cognitive issues. Too high causes gynecomastia and reduced T. The T/E2 ratio matters.',
-    myContextNote: 'Estradiol <20 pg/mL (reported as <20 — at or below the detection threshold). This is on the lower end but within range. Dutasteride doesn\'t block aromatase, so E2 should be maintained. Worth monitoring — low E2 can impair bone density long-term.',
+    myContextNote: 'Estradiol <30 pg/mL (reported as <30) on the Quest panel. Well within the male reference (≤39 pg/mL). Not causing gynecomastia or suppressing T. Dutasteride doesn\'t block aromatase — E2 production pathway is intact.',
     relatedSupplements: ['dutasteride', 'zinc'],
-    mnemonic: 'Estradiol <20 — LESS THAN TWENTY, low-normal, watching steadily.',
+    mnemonic: 'Estradiol <30 — LESS THAN THIRTY, normal for men, not dirty.',
     xpValue: 15
   },
   {
-    id: 'dht', name: 'DHT', panel: 'hormones', myValue: 483.7, unit: 'pg/mL',
-    referenceRange: { low: 175, optimal_low: 250, optimal_high: 800, high: 913 },
-    status: 'optimal',
+    id: 'dht', name: 'DHT', panel: 'hormones', myValue: 7, unit: 'ng/dL',
+    referenceRange: { low: 12, optimal_low: 25, optimal_high: 55, high: 65 },
+    status: 'low',
     whatItMeasures: 'Dihydrotestosterone — the most potent androgen, formed from testosterone by 5-alpha reductase.',
     whyItMatters: 'DHT drives androgenic alopecia (hair loss). Dutasteride blocks 5-alpha reductase to reduce DHT. DHT level on treatment reflects treatment efficacy.',
-    myContextNote: 'DHT at 483.7 pg/mL is in the mid-range DESPITE dutasteride (which blocks ~90–95% of 5-AR). This is the "surprisingly good" result the doctor flagged — DHT is being suppressed enough for hair preservation while remaining within the normal range for overall androgenic health. Suggests good baseline endogenous production.',
+    myContextNote: 'DHT 7 ng/dL (LOW) by LC/MS/MS — below the Quest reference range of 12–65 ng/dL. This is the gold-standard measurement: dutasteride is suppressing DHT below the lower reference limit, ideal for the hair protocol. A previous immunoassay reading of 483.7 pg/mL was a methodology artifact (cross-reactivity with testosterone and androstenedione). LC/MS/MS physically separates and quantifies only DHT — 7 ng/dL is the accurate result.',
     relatedSupplements: ['dutasteride'],
-    mnemonic: 'DHT 483.7 — FOUR-eighty-THREE, dutasteride working, hair preserved with DHT in range.',
+    mnemonic: 'DHT 7 ng/dL — SEVEN, below reference on LC/MS/MS, dutasteride achieving maximal 5-AR blockade.',
     xpValue: 25
   },
   {
@@ -412,25 +436,25 @@ window.HSA.BIOMARKERS = [
     xpValue: 15
   },
   {
-    id: 'prolactin', name: 'Prolactin', panel: 'hormones', myValue: 245, unit: 'mIU/L',
+    id: 'prolactin', name: 'Prolactin', panel: 'hormones', myValue: 142, unit: 'mIU/L',
     referenceRange: { low: 73, optimal_low: 86, optimal_high: 300, high: 407 },
     status: 'optimal',
     whatItMeasures: 'Pituitary hormone that can suppress testosterone when elevated (hyperprolactinaemia).',
     whyItMatters: 'High prolactin (>600 mIU/L) suppresses the HPG axis, reducing LH/FSH and testosterone. Often caused by pituitary adenoma, medication, or chronic stress.',
-    myContextNote: '245 mIU/L is comfortably mid-range. No evidence of prolactin-mediated testosterone suppression. This rules out prolactinoma as a cause of the SHBG picture.',
+    myContextNote: '6.7 ng/mL (142 mIU/L) — down from 245 mIU/L in April 2026, mid-range optimal. No prolactin-mediated testosterone suppression. Confirms SHBG drop is not driven by hyperprolactinaemia.',
     relatedSupplements: ['zinc', 'ashwagandha'],
-    mnemonic: 'Prolactin 245 — TWO-forty-FIVE, prolactin not driving T deprivation.',
+    mnemonic: 'Prolactin 142 — dropped with SHBG, both heading the right direction.',
     xpValue: 15
   },
   {
-    id: 'dhea_s', name: 'DHEA-S', panel: 'hormones', myValue: 187.6, unit: 'µg/dL',
-    referenceRange: { low: 44.3, optimal_low: 100, optimal_high: 300, high: 331 },
-    status: 'optimal',
+    id: 'dhea_s', name: 'DHEA-S', panel: 'hormones', myValue: 120, unit: 'µg/dL',
+    referenceRange: { low: 44.3, optimal_low: 150, optimal_high: 300, high: 442 },
+    status: 'borderline',
     whatItMeasures: 'Dehydroepiandrosterone sulphate — adrenal androgen precursor to testosterone and estrogen.',
-    whyItMatters: 'DHEA-S declines with age. Low levels associate with reduced vitality, immunosenescence, and lower anabolic tone. Often used as a broad vitality/adrenal reserve marker.',
-    myContextNote: '187.6 µg/dL is solidly mid-range — good adrenal reserve and anabolic precursor pool. No DHEA supplementation in the stack — these levels are endogenously produced.',
+    whyItMatters: 'DHEA-S declines ~10%/decade after age 30. Low levels associate with reduced vitality, immunosenescence, and lower anabolic tone. Often used as a broad adrenal reserve and longevity marker.',
+    myContextNote: '120 µg/dL is in the lower quarter of the range (ref 61–442) — down from 187.6 in April 2026. At 46, natural DHEA decline is expected, but 120 is below the functional optimal zone (>150). DHEA supplementation (25–50 mg/morning with fat) is the most direct intervention — worth discussing with your doctor.',
     relatedSupplements: ['ashwagandha'],
-    mnemonic: 'DHEA-S 187.6 — ONE-eighty-SEVEN, adrenal androgen reserve doing well.',
+    mnemonic: 'DHEA-S 120 — ONE-twenty, age 46 catching up. Low-normal — DHEA sup worth a check-up.',
     xpValue: 15
   },
   {
@@ -515,14 +539,14 @@ window.HSA.BIOMARKERS = [
 
   // ── INFLAMMATION / OTHER ──────────────────────────────────────────────────
   {
-    id: 'crp', name: 'CRP', panel: 'inflammation', myValue: 1.0, unit: 'mg/L',
+    id: 'crp', name: 'CRP', panel: 'inflammation', myValue: 0.2, unit: 'mg/L',
     referenceRange: { low: 0, optimal_low: 0, optimal_high: 0.8, high: 5.0 },
-    status: 'borderline',
+    status: 'optimal',
     whatItMeasures: 'C-reactive protein — a non-specific liver-produced inflammatory marker that rises with acute and chronic inflammation.',
     whyItMatters: 'CRP >1.0 mg/L is associated with elevated cardiovascular risk. Chronic sub-clinical inflammation accelerates atherosclerosis, cancer risk, and ageing. The anti-inflammatory stack targets this directly.',
-    myContextNote: '1.0 mg/L is right at the borderline (optimal <0.8). This is good context for why fish oil, ginger, garlic, fisetin, and EVOO are in the stack — each targeting a different inflammatory pathway. Combined CRP was likely higher before the anti-inflammatory protocol.',
+    myContextNote: 'Reported as <0.2 mg/L — essentially undetectable. This is a dramatic improvement from 1.0 (borderline) in the April 2026 Serbia panel. The anti-inflammatory stack (fish oil, ginger, garlic, fisetin, EVOO, NAC) is clearly working. Near-zero CRP is the longevity ideal.',
     relatedSupplements: ['fishoil', 'ginger', 'garlic', 'fisetin', 'evoo', 'vitc'],
-    mnemonic: 'CRP 1.0 — ONE-point-ZERO, borderline inflammation — supplement stack is the hero.',
+    mnemonic: 'CRP <0.2 — LESS THAN zero-TWO, inflammation essentially zero. Stack working through and through.',
     xpValue: 20
   },
   {

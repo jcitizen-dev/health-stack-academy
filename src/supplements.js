@@ -91,13 +91,13 @@ window.HSA.SUPPLEMENTS = [
     dosageNote: 'Daily — taken with Lunch, prescription only, requires medical supervision',
     rarity: 'legendary', category: 'hair',
     whatItIs: 'A prescription medication that blocks the enzyme converting testosterone into DHT — the hormone that shrinks hair follicles.',
-    whyITakeIt: 'DHT is the primary driver of male pattern hair loss. Dutasteride blocks ~90–95% of DHT conversion (vs finasteride\'s ~70%). DHT at 483.7 pg/mL — notably still within range despite treatment, showing efficacy without crashing DHT to zero.',
+    whyITakeIt: 'DHT is the primary driver of male pattern hair loss. Dutasteride blocks ~90–95% of DHT conversion (vs finasteride\'s ~70%). By LC/MS/MS (gold standard), my DHT is 7 ng/dL — below the reference range (12–65 ng/dL), confirming very effective 5-AR suppression. Ideal for the hair protocol.',
     mechanism: 'Your body naturally converts some testosterone into a stronger form called DHT. DHT gradually shrinks hair follicles on your scalp until they stop growing hair. Dutasteride blocks this conversion, dramatically reducing DHT levels at the scalp and slowing or stopping hair loss.',
     relatedMarkers: ['dht', 'testosterone', 'shbg'],
     timing: 'Lunch (daily)',
     veganRelevance: '',
     risks: 'Prescription-only. Side effects: reduced libido, erectile dysfunction (rare at 0.5 mg). Half-life is 5 weeks — effects persist long after stopping.',
-    expertNotes: 'DHT at 483.7 on dutasteride is a strong result — treatment is working without over-suppressing. Used alongside topical Minoxidil and Copper Peptide for a multi-mechanism hair protocol.',
+    expertNotes: 'DHT by LC/MS/MS: 7 ng/dL (LOW, ref 12–65) — dutasteride pushing DHT below the reference floor, confirming maximal 5-AR blockade. The earlier immunoassay reading of 483.7 pg/mL was a method artifact (cross-reactivity with other steroids). Used alongside topical Minoxidil and Copper Peptide for a multi-mechanism hair protocol.',
     xpValue: 40, unlockLevel: 3
   },
   {
